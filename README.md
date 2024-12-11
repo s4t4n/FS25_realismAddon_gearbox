@@ -14,6 +14,9 @@ So for now the features are final I think - at least for a first final version. 
 - mainly me, Modelleicher
 - bases on Giants stuff
 
+# How do Download and Use
+Click on FS25_realismAddon_gearbox.zip and then in the right corner small Icon "Download Raw File" with a Download Symbol
+
 
 # Changes between FS22 and FS25
 - added parkbrake/handbrake function. Since at the time of converting there were no other mods with this feature it was neccessary to add it. 
