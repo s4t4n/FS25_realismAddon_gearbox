@@ -22,7 +22,7 @@ As EnhancedVehicle is now released the EV parking brake should work again and th
 - fixed MP synchronization where Gears shifted with a Gear Lever were only synchronized up to Gear 7 making all Vehicles with H/L Gears in one impossible to play
 
 
-# Feature List
+# Feature List FS25
 - removes all unnatural/automatic braking, only adding back Engine Braking depending on gearRatio
 - add constant rpm regulation (vehicle will drive at idle and not only if the gas pedal is pressed)
 - linear gas pedal (50% throttle pedal means 50% rpm not 80-90% like with Giants Default where the pedal is a acceleration pedal not throttle pedal)
@@ -70,7 +70,7 @@ As EnhancedVehicle is now released the EV parking brake should work again and th
 
 
 
-# Features:
+# Features (FS22):
 ###### Features Update 0.5.2.6
 - addition of second group set (see examples.xml on how to implement it)
 
