@@ -100,7 +100,7 @@ function realismAddon_gearbox_inputs:RAGB_GEARSHIFT_AXIS(actionName, inputValue)
 	-- only call the event if inputAxis moved enough to be a new gear (motor.gear is the current gear index in FS22)
 	if input.gearAxisPosition ~= wantedGear then
 		if wantedGear ~= motor.gear then 
-			MotorGearShiftEvent.sendEvent(self, MotorGearShiftEvent.TYPE_SELECT_GEAR, wantedGear)
+			MotorGearShiftEvent.sendToServer(self, MotorGearShiftEvent.TYPE_SELECT_GEAR, wantedGear)
 		end
 		input.gearAxisPosition = wantedGear
 	end

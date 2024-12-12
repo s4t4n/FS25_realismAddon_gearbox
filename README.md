@@ -36,10 +36,21 @@ As EnhancedVehicle is now released the EV parking brake should work again and th
 - remove automatic full brake when clutching in reverse bug
 - added support for axis shifting for FPS transmissions
 - added handbrake 
+- added support for second Group-Set so the usual Gears, Groups and second Group can be simulated. (for example Gears, R, L, H Group and L / H Powershift) Inputs need to be configured, nothing set by default
 
 
 
 # Changelog in FS25:
+
+###### V 0.9.0.2
+- Fixed FPS Axis not working 
+
+###### V 0.9.0.1
+- Fixed wrong modDesc descVersion
+
+###### V 0.9.0.0
+- Initial Github Release: For a full Feature list look at the Feature List above
+
 ###### V 0.9.0.0
 - Initial Github Release: For a full Feature list look at the Feature List above
 
