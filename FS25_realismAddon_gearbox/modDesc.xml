@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="93">
     <author>modelleicher</author>
-    <version>0.9.0.2</version>
+    <version>0.9.0.2 noHB</version>
     <title>
         <de>RealismAddon: Gearbox</de>
 		<en>RealismAddon: Gearbox</en>
@@ -37,7 +37,7 @@
 		<text name="input_RAGB_GROUPSECOND_UP"><de>Zweites Gruppenset hochschalten</de><en>Group Second Set Up</en></text>
 		<text name="input_RAGB_GROUPSECOND_DOWN"><de>Zweites Gruppenset runterschalten</de><en>Group Second Set Down</en></text>
 		
-		<text name="input_RAGB_HANDBRAKE"><de>Handbremse ein/ausschalten</de><en>Handbrake on/off</en></text>
+		<!-- <text name="input_RAGB_HANDBRAKE"><de>Handbremse ein/ausschalten</de><en>Handbrake on/off</en></text> -->
 
 	</l10n>
 	
