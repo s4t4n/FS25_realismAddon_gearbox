@@ -30,7 +30,7 @@ function realismAddon_gearbox_inputs.onRegisterActionEvents(self, isActiveForInp
 			self:addRealismAddonActionEvent("BUTTON_SINGLE_ACTION", "RAGB_GROUPSECOND_DOWN", "GROUPSECOND_INPUT")	
 			
 			-- handbrake
-			self:addRealismAddonActionEvent("BUTTON_SINGLE_ACTION", "RAGB_HANDBRAKE", "HANDBRAKE_INPUT")					
+			-- self:addRealismAddonActionEvent("BUTTON_SINGLE_ACTION", "RAGB_HANDBRAKE", "HANDBRAKE_INPUT")					
 		
 		end
 
@@ -129,14 +129,14 @@ function realismAddon_gearbox_inputs:GROUPSECOND_INPUT(actionName, inputValue)
 end
 
 -- handbrake
-function realismAddon_gearbox_inputs:HANDBRAKE_INPUT(actionName, inputValue)
+-- function realismAddon_gearbox_inputs:HANDBRAKE_INPUT(actionName, inputValue)
 
-	local spec_ragb = self.spec_realismAddon_gearbox
+	-- local spec_ragb = self.spec_realismAddon_gearbox
 	
-	if spec_ragb.handbrakeStateME ~= nil then	
-		self:processHandbrakeInput(not spec_ragb.handbrakeStateME)
-	end
-end
+	-- if spec_ragb.handbrakeStateME ~= nil then	
+	-- 	self:processHandbrakeInput(not spec_ragb.handbrakeStateME)
+	-- end
+-- end
 
 -- END
 
