@@ -568,25 +568,25 @@ function realismAddon_gearbox_overrides.updateWheelsPhysics(self, superFunc, dt,
 		-- 		
 		
 		-- hand brake basegame
-		if doHandbrake then
-			brakePedal = 1
-		end
+		-- if doHandbrake then
+		-- 	brakePedal = 1
+		-- end
 
 		-- handbrake RAGB (only use then Enhanced Vehicle is not active)
-		if self.spec_realismAddon_gearbox.handbrakeStateME ~= nil and self.vData == nil  then
-			if self.spec_realismAddon_gearbox.handbrakeStateME then
-				brakePedal = 1
-				doHandbrake = true
-			end
-		end
+		-- if self.spec_realismAddon_gearbox.handbrakeStateME ~= nil and self.vData == nil  then
+		-- 	if self.spec_realismAddon_gearbox.handbrakeStateME then
+		-- 		brakePedal = 1
+		-- 		doHandbrake = true
+		-- 	end
+		-- end
 		
 		-- Enhanced Vehicle Handbrake if Enhanced Vehicle is active 
-		if self.vData ~= nil then
-			if self.vData.is[13] then
-				brakePedal = 1
-				doHandbrake = true
-			end
-			self.spec_realismAddon_gearbox.handbrakeUseME = false
+		-- if self.vData ~= nil then
+		-- 	if self.vData.is[13] then
+		-- 		brakePedal = 1
+		-- 		doHandbrake = true
+		-- 	end
+		-- 	self.spec_realismAddon_gearbox.handbrakeUseME = false
 		end
 		
 																
