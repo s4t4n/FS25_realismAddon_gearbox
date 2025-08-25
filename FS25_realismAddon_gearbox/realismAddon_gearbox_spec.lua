@@ -18,7 +18,7 @@ end
 
 function realismAddon_gearbox_spec.registerFunctions(vehicleType)
 	SpecializationUtil.registerFunction(vehicleType, "processSecondGroupSetInputs", realismAddon_gearbox_spec.processSecondGroupSetInputs)
-	SpecializationUtil.registerFunction(vehicleType, "processHandbrakeInput", realismAddon_gearbox_spec.processHandbrakeInput)	
+	-- SpecializationUtil.registerFunction(vehicleType, "processHandbrakeInput", realismAddon_gearbox_spec.processHandbrakeInput)	
 	SpecializationUtil.registerFunction(vehicleType, "getMotorBlowOffValveStateRAGB", realismAddon_gearbox_spec.getMotorBlowOffValveStateRAGB)
 	SpecializationUtil.registerFunction(vehicleType, "getBoostPressureRAGB", realismAddon_gearbox_spec.getBoostPressureRAGB)
 end
@@ -27,17 +27,17 @@ function realismAddon_gearbox_spec:onDraw()
 	
 	local spec = self.spec_realismAddon_gearbox
 	-- check if transmission is manual 
-	if realismAddon_gearbox_overrides.checkIsManual(self.spec_motorized.motor) and spec.handbrakeUseME then	
-		if spec.handbrakeStateME then
-			setTextColor(0.6, 0, 0, 1)
-			renderText(0.91, 0.033, 0.02, "P")
-		else
-			setTextColor(0.501, 0.835, 0.094, 1)		
-			renderText(0.91, 0.033, 0.02, "P")
-		end
+	-- if realismAddon_gearbox_overrides.checkIsManual(self.spec_motorized.motor) and spec.handbrakeUseME then	
+		-- if spec.handbrakeStateME then
+		-- 	setTextColor(0.6, 0, 0, 1)
+			-- renderText(0.91, 0.033, 0.02, "P")
+		-- else
+		-- 	setTextColor(0.501, 0.835, 0.094, 1)		
+		-- 	renderText(0.91, 0.033, 0.02, "P")
+		-- end
 
-		setTextColor(1, 1, 1, 1)	
-	end
+		-- setTextColor(1, 1, 1, 1)	
+	-- end
 end
 
 
@@ -151,8 +151,8 @@ function realismAddon_gearbox_spec:onLoad(savegame)
 
 
 	-- handbrake
-	spec.handbrakeStateME = true
-	spec.handbrakeUseME = true
+	-- spec.handbrakeStateME = true
+	-- spec.handbrakeUseME = true
 
 
 end
@@ -175,13 +175,13 @@ function realismAddon_gearbox_spec:processSecondGroupSetInputs(wantedGroup, noEv
 end
 
 -- process inputs of handbrake 
-function realismAddon_gearbox_spec:processHandbrakeInput(state, noEventSend)
-	setHandbrakeEvent.sendEvent(self, state, noEventSend)
+-- function realismAddon_gearbox_spec:processHandbrakeInput(state, noEventSend)
+	-- setHandbrakeEvent.sendEvent(self, state, noEventSend)
 
-	local spec = self.spec_realismAddon_gearbox
-	spec.handbrakeStateME = state
+-- 	local spec = self.spec_realismAddon_gearbox
+-- 	spec.handbrakeStateME = state
 
-end
+-- end
 
 
 -- UPDATE
@@ -292,51 +292,51 @@ end
 
 
 
-setHandbrakeEvent = {}
-local setHandbrakeEvent_mt = Class(setHandbrakeEvent, Event)
+-- setHandbrakeEvent = {}
+-- local setHandbrakeEvent_mt = Class(setHandbrakeEvent, Event)
 
-InitEventClass(setHandbrakeEvent, "setHandbrakeEvent")
+-- InitEventClass(setHandbrakeEvent, "setHandbrakeEvent")
 
-function setHandbrakeEvent.emptyNew()
-	return Event.new(setHandbrakeEvent_mt)
-end
+-- function setHandbrakeEvent.emptyNew()
+-- 	return Event.new(setHandbrakeEvent_mt)
+-- end
 
-function setHandbrakeEvent.new(object, wantedState)
-	local self = setHandbrakeEvent.emptyNew()
-	self.object = object
-	self.wantedState = wantedState
+-- function setHandbrakeEvent.new(object, wantedState)
+-- 	local self = setHandbrakeEvent.emptyNew()
+-- 	self.object = object
+-- 	self.wantedState = wantedState
 
-	return self
-end
+	-- return self
+-- end
 
-function setHandbrakeEvent:readStream(streamId, connection)
-	self.object = NetworkUtil.readNodeObject(streamId)
-	self.wantedState = streamReadBool(streamId, 5)
+-- function setHandbrakeEvent:readStream(streamId, connection)
+	-- self.object = NetworkUtil.readNodeObject(streamId)
+-- 	self.wantedState = streamReadBool(streamId, 5)
 
-	self:run(connection)
-end
+	-- self:run(connection)
+-- end
 
-function setHandbrakeEvent:writeStream(streamId, connection)
-	NetworkUtil.writeNodeObject(streamId, self.object)
-	streamWriteBool(streamId, self.wantedState)
-end
+-- function setHandbrakeEvent:writeStream(streamId, connection)
+-- 	NetworkUtil.writeNodeObject(streamId, self.object)
+-- 	streamWriteBool(streamId, self.wantedState)
+-- end
 
-function setHandbrakeEvent:run(connection)
-	if not connection:getIsServer() then
-		g_server:broadcastEvent(self, false, connection, self.object)
-	end
+-- function setHandbrakeEvent:run(connection)
+-- 	if not connection:getIsServer() then
+-- 		g_server:broadcastEvent(self, false, connection, self.object)
+	-- end
 
-	if self.object ~= nil and self.object:getIsSynchronized() then
-		self.object:processHandbrakeInput(self.wantedState, true);
-	end
-end
+	-- if self.object ~= nil and self.object:getIsSynchronized() then
+		-- self.object:processHandbrakeInput(self.wantedState, true);
+	-- end
+-- end
 
-function setHandbrakeEvent.sendEvent(object, wantedState, noEventSend)
-	if noEventSend == nil or noEventSend == false then
-		if g_server ~= nil then
-			g_server:broadcastEvent(setHandbrakeEvent.new(object, wantedState), nil, nil, object)			
-		else
+-- function setHandbrakeEvent.sendEvent(object, wantedState, noEventSend)
+-- 	if noEventSend == nil or noEventSend == false then
+	-- 	if g_server ~= nil then
+	-- 		g_server:broadcastEvent(setHandbrakeEvent.new(object, wantedState), nil, nil, object)			
+	-- 	else
 			g_client:getServerConnection():sendEvent(setHandbrakeEvent.new(object, wantedState))
-		end
-	end
-end
+		-- end
+	-- end
+-- end
